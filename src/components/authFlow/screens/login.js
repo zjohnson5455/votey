@@ -57,8 +57,8 @@ class Login extends Component {
 
         <Text style={styles.title}>VOTEY</Text>
 
-        <View style={{height: 50, width: 200, marginTop: 10, backgroundColor: 'black', borderRadius: 10}} >
-          <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center', height: 48, width: 198, backgroundColor: 'white', borderRadius: 10}}>
+        <View style={{height: 50, width: 300, marginTop: 10, backgroundColor: 'black', borderRadius: 10}} >
+          <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center', height: 48, width: 298, backgroundColor: 'white', borderRadius: 10}}>
           <TextInput
             placeholder="email..."
             placeholderTextColor="#8b8d91"
@@ -71,8 +71,8 @@ class Login extends Component {
         </View>
       </View>
 
-      <View style={{height: 50, width: 200, borderRadius: 10, marginTop: 10, backgroundColor: 'black'}} >
-        <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center', height: 48, width: 198, backgroundColor: 'white', borderRadius: 10}}>
+      <View style={{height: 50, width: 300, borderRadius: 10, marginTop: 10, backgroundColor: 'black'}} >
+        <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center', height: 48, width: 298, backgroundColor: 'white', borderRadius: 10}}>
           <TextInput style={{paddingHorizontal: 100, }}
             placeholder="password..."
             placeholderTextColor="#8b8d91"
