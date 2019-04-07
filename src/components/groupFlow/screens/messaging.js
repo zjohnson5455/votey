@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { View, Dimensions, Text } from 'react-native';
+import {
+  View, Dimensions, Text, Button
+} from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
@@ -28,6 +30,10 @@ class Messaging extends Component {
       }}
       >
         <Text>Messaging</Text>
+        <Button
+          onPress={() => this.props.navigation.navigate('Data')}
+          title="Go to data"
+        />
       </View>
     );
   }

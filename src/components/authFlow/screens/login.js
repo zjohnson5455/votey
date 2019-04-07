@@ -74,6 +74,14 @@ class Login extends Component {
           />
 
           <Button title="Login" onPress={this.signIn} />
+          <Button
+            onPress={() => this.props.navigation.navigate('Create')}
+            title="Go to create"
+          />
+          <Button
+            onPress={() => this.props.navigation.navigate('AppFlow')}
+            title="Go to home"
+          />
         </View>
       </KeyboardAwareScrollView>
     );

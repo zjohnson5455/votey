@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { View, Dimensions, Text } from 'react-native';
+import {
+  View, Dimensions, Text, Button
+} from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
@@ -28,6 +30,10 @@ class Profile extends Component {
       }}
       >
         <Text>Profile</Text>
+        <Button
+          onPress={() => this.props.navigation.navigate('AuthFlow')}
+          title="Go to login"
+        />
       </View>
     );
   }

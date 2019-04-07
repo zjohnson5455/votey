@@ -25,7 +25,7 @@ class CreateAccount extends Component {
     this.setState({ size: { width: layout.width, height: layout.height } });
   };
 
-  signIn = async () => {
+  signUp = async () => {
     console.log(this.state.email);
     console.log(this.state.password);
 
@@ -69,6 +69,14 @@ class CreateAccount extends Component {
           />
 
           <Button title="Sign Up" onPress={this.signUp} />
+          <Button
+            onPress={() => this.props.navigation.navigate('Login')}
+            title="Go to login"
+          />
+          <Button
+            onPress={() => this.props.navigation.navigate('AppFlow')}
+            title="Go to home"
+          />
         </View>
       </KeyboardAwareScrollView>
     );
