@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   View, ScrollView, StyleSheet, Dimensions, Text, Image, Button, Alert, TouchableOpacity
 } from 'react-native';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 const { width, height } = Dimensions.get('window');
 
@@ -55,6 +56,7 @@ class Home extends Component {
     const pic = {
       uri: 'https://www.onlinestores.com/flagdetective/images/download/united-states-of-america-hi.jpg'
     };
+    const { navigate } = this.props.navigation;
     return (
       <ScrollView>
         <View style={{
@@ -102,7 +104,7 @@ class Home extends Component {
 
           <TouchableOpacity
             style={styles.trial}
-            onPress={this.onPress}
+            onPress={() => navigate('MaxsThing')}
           >
             <View style={{ height: 50, width: 400, backgroundColor: '#b5b8bc' }}>
               <View style={{
