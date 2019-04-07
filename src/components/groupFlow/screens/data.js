@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     marginTop: 10
   },
   title: {
-    color: 'red',
+    color: 'black',
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 30,
@@ -77,7 +77,7 @@ export default class Data extends Component {
 
   render() {
     const pic = {
-      uri: 'https://scontent.fzty2-1.fna.fbcdn.net/v/t1.0-9/11138159_890610520995090_2090422664756131236_n.jpg?_nc_cat=109&_nc_ht=scontent.fzty2-1.fna&oh=8c04f3acdd1635ecbfc6ef2c703670d3&oe=5D02DD59'
+      uri: 'http://www.kidsdiscover.com/wp-content/uploads/2016/06/document_520_2.jpg'
     };
     const { navigate } = this.props.navigation;
     return (
@@ -106,8 +106,8 @@ export default class Data extends Component {
               marginTop: 50, marginBottom: 10, height: 200, width: 200
             }}
           />
-          <Text style={styles.title}>HACKATHON</Text>
-          <Text style={styles.normal}>Progress: 6/9 members have voted</Text>
+          <Text style={styles.title}> Voting </Text>
+          <Text style={styles.normal}>Progress: 6/10 members have voted</Text>
           <Text style={styles.normal}>Days left to vote: 3</Text>
 
           <View style={{
@@ -124,18 +124,18 @@ export default class Data extends Component {
             </View>
           </View>
 
-          <Member name="Rexxar" color="#beff9b" />
-          <Member name="Jaina" color="#beff9b" />
-          <Member name="Valeera" color="#f79191" />
-          <Member name="Zack" color="#beff9b" />
+          <Member name="Emily" color="#78b575" />
+          <Member name="Mary" color="#78b575" />
+          <Member name="Arjun" color="#f79191" />
+          <Member name="Zack" color="#78b575" />
           <Member name="Max" color="#f79191" />
-          <Member name="Brian" color="#beff9b" />
-          <Member name="Rexxar" color="#f79191" />
-          <Member name="Jaina" color="#f79191" />
-          <Member name="Valeera" color="#f79191" />
-          <Member name="Zack" color="#f79191" />
-          <Member name="Max" color="#beff9b" />
-          <Member name="Brian" color="#f79191" />
+          <Member name="Brian" color="#78b575" />
+          <Member name="Kunal" color="#f79191" />
+          <Member name="Wilder" color="#f79191" />
+          <Member name="Charles" color="#f79191" />
+          <Member name="William" color="#f79191" />
+          <Member name="Sam" color="#78b575" />
+          <Member name="Wanda" color="#f79191" />
 
         </View>
       </ScrollView>
