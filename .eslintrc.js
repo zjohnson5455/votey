@@ -13,7 +13,8 @@ module.exports = {
     'no-unused-vars': 'off',
     'no-console': 'off',
     'react/prefer-stateless-function': 'off',
-    'react/destructuring-assignment': 'off'
+    'react/destructuring-assignment': 'off',
+    'max-len': 'off'
   },
   'globals': {
     "fetch": false
