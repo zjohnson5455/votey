@@ -86,7 +86,7 @@ export default class Data extends Component {
           flexDirection: 'column',
           justifyContent: 'flex-start',
           alignItems: 'center',
-          backgroundColor: 'skyblue',
+          backgroundColor: '#dbeaff',
         }}
         >
           <TouchableOpacity
@@ -124,18 +124,18 @@ export default class Data extends Component {
             </View>
           </View>
 
-          <Member name="Rexxar" color="green" />
-          <Member name="Jaina" color="green" />
-          <Member name="Valeera" color="red" />
-          <Member name="Zack" color="green" />
-          <Member name="Max" color="red" />
-          <Member name="Brian" color="green" />
-          <Member name="Rexxar" color="red" />
-          <Member name="Jaina" color="red" />
-          <Member name="Valeera" color="red" />
-          <Member name="Zack" color="red" />
-          <Member name="Max" color="green" />
-          <Member name="Brian" color="red" />
+          <Member name="Rexxar" color="#beff9b" />
+          <Member name="Jaina" color="#beff9b" />
+          <Member name="Valeera" color="#f79191" />
+          <Member name="Zack" color="#beff9b" />
+          <Member name="Max" color="#f79191" />
+          <Member name="Brian" color="#beff9b" />
+          <Member name="Rexxar" color="#f79191" />
+          <Member name="Jaina" color="#f79191" />
+          <Member name="Valeera" color="#f79191" />
+          <Member name="Zack" color="#f79191" />
+          <Member name="Max" color="#beff9b" />
+          <Member name="Brian" color="#f79191" />
 
         </View>
       </ScrollView>

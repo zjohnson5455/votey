@@ -63,7 +63,7 @@ class Home extends Component {
           flexDirection: 'column',
           justifyContent: 'flex-start',
           alignItems: 'center',
-          backgroundColor: 'skyblue',
+          backgroundColor: '#dbeaff',
         }}
         >
           <View style={{ height: 50, width: 400, backgroundColor: '#f4f8fc' }}>
