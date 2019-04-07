@@ -9,14 +9,16 @@ const { width, height } = Dimensions.get('window');
 
 // https://www.youtube.com/watch?v=0TlOhmdl3-M
 
-class CreateAccount extends Component {
+class SealTheDeal extends Component {
   constructor(props) {
     super(props);
+    console.log(props.navigation.state.params.id);
 
     this.state = {
       size: { width, height },
-      email: '',
-      password: '',
+      email: props.navigation.state.params.email,
+      id: props.navigation.state.params.id,
+      hometown: '',
     };
   }
 
@@ -25,18 +27,16 @@ class CreateAccount extends Component {
     this.setState({ size: { width: layout.width, height: layout.height } });
   };
 
-  signUp = async () => {
-    console.log(this.state.email);
-    console.log(this.state.password);
+  seal = async () => {
+    console.log('About to seal the deal');
+    console.log(this.props.navigation.state.params.groupId);
+    console.log(this.props.navigation.state.params.userId);
 
     try {
-      const data = await Firebase.auth.createUserWithEmailAndPassword(this.state.email, this.state.password);
-      console.log('!!!!!!!!!!!!');
-      console.log(data.user.uid);
-      this.props.navigation.navigate('FillProfile', {
-        email: this.state.email,
-        id: data.user.uid,
+      const user = await Firebase.db.collection('users').doc(this.props.navigation.state.params.userId).update({
+        groups: [this.props.navigation.state.params.groupId]
       });
+      console.log('at least you are successful in that');
     } catch (e) {
       console.log(e);
       Alert.alert(
@@ -61,31 +61,8 @@ class CreateAccount extends Component {
           backgroundColor: '#FFFFFF',
         }}
         >
-          <TextInput
-            placeholder="Email"
-            placeholderTextColor="black"
-            multiline
-            style={styles.text}
-            numberOfLines={2}
-            underlineColorAndroid="transparent"
-            onChangeText={email => this.setState({ email })}
-          />
 
-          <TextInput
-            placeholder="Password"
-            placeholderTextColor="black"
-            multiline
-            style={styles.text}
-            numberOfLines={2}
-            underlineColorAndroid="transparent"
-            onChangeText={password => this.setState({ password })}
-          />
-
-          <Button title="Next" onPress={this.signUp} />
-          <Button
-            onPress={() => this.props.navigation.navigate('Login')}
-            title="Go to login"
-          />
+          <Button title="Join the Group You Just Made!" onPress={this.seal} />
         </View>
       </KeyboardAwareScrollView>
     );
@@ -108,4 +85,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default CreateAccount;
+export default SealTheDeal;
