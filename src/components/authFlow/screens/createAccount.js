@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  View, Dimensions, Text, TextInput, StyleSheet, Button
+  View, Dimensions, Text, TextInput, StyleSheet, Button, Alert
 } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Firebase from '../../../Firebase';
@@ -32,8 +32,16 @@ class CreateAccount extends Component {
     try {
       await Firebase.auth.createUserWithEmailAndPassword(this.state.email, this.state.password);
       console.log('I think it worked?');
+      this.props.navigation.navigate('AppFlow');
     } catch (e) {
-      console.log(e);
+      Alert.alert(
+        'Oh no! Something Went Wrong!',
+        'Make sure your email and password are valid',
+        [
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
+        ],
+        { cancelable: false },
+      );
     }
   }
 
@@ -72,10 +80,6 @@ class CreateAccount extends Component {
           <Button
             onPress={() => this.props.navigation.navigate('Login')}
             title="Go to login"
-          />
-          <Button
-            onPress={() => this.props.navigation.navigate('AppFlow')}
-            title="Go to home"
           />
         </View>
       </KeyboardAwareScrollView>

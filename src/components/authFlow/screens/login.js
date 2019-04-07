@@ -30,6 +30,7 @@ class Login extends Component {
     try {
       await Firebase.auth.signInWithEmailAndPassword(this.state.email, this.state.password);
       console.log('I think it worked?');
+      this.props.navigation.navigate('AppFlow');
     } catch (e) {
       Alert.alert(
         'Oh no! Something Went Wrong!',
@@ -76,11 +77,7 @@ class Login extends Component {
           <Button title="Login" onPress={this.signIn} />
           <Button
             onPress={() => this.props.navigation.navigate('Create')}
-            title="Go to create"
-          />
-          <Button
-            onPress={() => this.props.navigation.navigate('AppFlow')}
-            title="Go to home"
+            title="Create an Account"
           />
         </View>
       </KeyboardAwareScrollView>
