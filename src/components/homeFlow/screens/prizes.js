@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Dimensions, Text } from 'react-native';
+import { View, ScrollView, StyleSheet, Dimensions, Text, Image, Button, Alert, TouchableOpacity } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
@@ -18,17 +18,22 @@ class Prizes extends Component {
   };
 
   render() {
+    let pic = {
+      uri: 'https://www.onlinestores.com/flagdetective/images/download/united-states-of-america-hi.jpg'
+    };
     return (
+      <ScrollView>
       <View style={{
-        flex: 1,
         flexDirection: 'column',
-        justifyContent: 'space-around',
+        justifyContent: 'flex-start',
         alignItems: 'center',
-        backgroundColor: '#FFFFFF',
+        backgroundColor: 'skyblue',
       }}
       >
+        <Image source={pic} style={{marginTop: 20, marginBottom: 10, height: 130, width: 250}}/>
         <Text>Prizes</Text>
       </View>
+      </ScrollView>
     );
   }
 }

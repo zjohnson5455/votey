@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  View, Dimensions, Text, TextInput, StyleSheet, Button, Alert
+  View, Dimensions, Text, TextInput, StyleSheet, Button, Alert, TouchableOpacity
 } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Firebase from '../../../Firebase';
@@ -63,23 +63,51 @@ class FillProfile extends Component {
           flexDirection: 'column',
           justifyContent: 'space-around',
           alignItems: 'center',
-          backgroundColor: '#FFFFFF',
+          backgroundColor: '#dbeaff',
         }}
         >
-          <TextInput
-            placeholder="Hometown"
-            placeholderTextColor="black"
-            multiline
-            style={styles.text}
-            numberOfLines={2}
-            underlineColorAndroid="transparent"
-            onChangeText={hometown => this.setState({ hometown })}
-          />
+          <Text style={styles.title}>DETAILS</Text>
 
-          <Button title="Sign Up" onPress={this.signUp} />
+          <View style={{
+            height: 50, width: 300, borderRadius: 10, marginTop: 20, backgroundColor: 'black'
+          }}
+          >
+            <View style={{
+              position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center', height: 48, width: 298, backgroundColor: 'white', borderRadius: 10
+            }}
+            >
+              <TextInput
+                placeholder="hometown..."
+                placeholderTextColor="#8b8d91"
+                multiline
+                style={styles.text}
+                numberOfLines={2}
+                underlineColorAndroid="transparent"
+                onChangeText={hometown => this.setState({ hometown })}
+              />
+            </View>
+          </View>
+
+
+          <TouchableOpacity
+            onPress={this.signUp}
+          >
+            <View style={{
+              borderRadius: 10, height: 50, width: 200, marginTop: 50, marginBottom: 40, backgroundColor: 'black'
+            }}
+            >
+              <View style={{
+                borderRadius: 10, position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center', height: 48, width: 198, backgroundColor: '#b5b8bc'
+              }}
+              >
+                <Text style={styles.text}> Sign up </Text>
+              </View>
+            </View>
+          </TouchableOpacity>
+
           <Button
             onPress={() => this.props.navigation.navigate('Login')}
-            title="Go to login"
+            title="Back to login"
           />
         </View>
       </KeyboardAwareScrollView>
@@ -90,12 +118,27 @@ class FillProfile extends Component {
 const styles = StyleSheet.create({
   text: {
     margin: 10,
-    color: 'black',
     textAlign: 'center',
     lineHeight: 20,
     fontSize: 20,
     textDecorationLine: 'none',
+    textShadowColor: '#000000',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 5
+  },
+  normal: {
+    color: 'black',
+    textAlign: 'center',
+    fontSize: 20,
+  },
+  title: {
+    marginTop: 30,
+    marginBottom: 30,
+    color: 'red',
+    textAlign: 'center',
+    fontSize: 50,
     fontWeight: 'bold',
+    textDecorationLine: 'none',
     textShadowColor: '#000000',
     textShadowOffset: { width: 0, height: 1 },
     textShadowRadius: 5
