@@ -9,20 +9,6 @@ import Root from './src';
 
 
 export default class App extends React.Component {
-  // addItem = () => {
-  //   db.collection('bananas').add({
-  //     color: 'green',
-  //     name: 'Lovelace',
-  //   })
-  //     .then((docRef) => {
-  //       console.log('Document written with ID: ', docRef.id);
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error adding document: ', error);
-  //     });
-  // };
-  //
-
   componentWillMount() {
     Firebase.init();
   }
