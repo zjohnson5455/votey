@@ -4,9 +4,10 @@ import AppNavigator from './mainStackNav';
 import MaxsScreen from '../components/groupFlow/screens/data';
 
 const MainNav = createSwitchNavigator({
+  AuthFlow: AuthNavigator,
   AppFlow: AppNavigator,
   MaxsThing: MaxsScreen,
-  AuthFlow: AuthNavigator,
+
 });
 
 const AppNav = createAppContainer(MainNav);
