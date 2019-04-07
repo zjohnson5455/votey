@@ -12,7 +12,8 @@ module.exports = {
     'react/no-unused-state': 'off',
     'no-unused-vars': 'off',
     'no-console': 'off',
-    'react/prefer-stateless-function': 'off'
+    'react/prefer-stateless-function': 'off',
+    'react/destructuring-assignment': 'off'
   },
   'globals': {
     "fetch": false

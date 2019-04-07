@@ -3,32 +3,28 @@ import {
   StyleSheet, Text, View, Button
 } from 'react-native';
 
-import firebase from 'firebase';
-import * as firebaseui from 'firebaseui';
-import db from './src/config';
+import Firebase from './src/Firebase';
+// import db from './src/config';
 import Root from './src';
 
 
 export default class App extends React.Component {
-  addItem = () => {
-    db.collection('bananas').add({
-      color: 'green',
-      name: 'Lovelace',
-    })
-      .then((docRef) => {
-        console.log('Document written with ID: ', docRef.id);
-      })
-      .catch((error) => {
-        console.error('Error adding document: ', error);
-      });
-  };
+  // addItem = () => {
+  //   db.collection('bananas').add({
+  //     color: 'green',
+  //     name: 'Lovelace',
+  //   })
+  //     .then((docRef) => {
+  //       console.log('Document written with ID: ', docRef.id);
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error adding document: ', error);
+  //     });
+  // };
+  //
 
-  uiConfig = () => {
-    firebaseui.start('#firebaseui-auth-container', {
-      signInOptions: [
-        firebase.auth.EmailAuthProvider.PROVIDER_ID
-      ],
-    });
+  componentWillMount() {
+    Firebase.init();
   }
 
   render() {
