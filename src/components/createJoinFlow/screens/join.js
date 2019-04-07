@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { View, Dimensions, Text } from 'react-native';
+import {
+  View, Dimensions, Text, Button
+} from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
@@ -27,7 +29,11 @@ class Join extends Component {
         backgroundColor: '#FFFFFF',
       }}
       >
-        <Text>Join a group</Text>
+        <Text>Join a group (list here)</Text>
+        <Button
+          onPress={() => this.props.navigation.navigate('GroupDetail')}
+          title="Go to group detail"
+        />
       </View>
     );
   }
