@@ -34,6 +34,10 @@ class Messaging extends Component {
           onPress={() => this.props.navigation.navigate('Data')}
           title="Go to data"
         />
+        <Button
+          onPress={() => this.props.navigation.navigate('MainTabNav')}
+          title="Go to home"
+        />
       </View>
     );
   }

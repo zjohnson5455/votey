@@ -10,7 +10,7 @@ const GroupStackNavigator = createStackNavigator(
     Messages,
     Data,
   },
-  { headerMode: 'none' },
+  { headerMode: 'screen' },
 );
 
 

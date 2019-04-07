@@ -1,13 +1,21 @@
-import { createSwitchNavigator, createAppContainer } from 'react-navigation';
-import AuthNavigator from './authStackNav';
-import AppNavigator from './mainStackNav';
+import { createSwitchNavigator } from 'react-navigation';
+import MainTabNav from './mainTabNav';
+import GroupStackNav from './groupStackNav';
+import JoinStackNav from './joinStackNav';
+import Create from '../components/createJoinFlow/screens/create';
 
 
-const MainNav = createSwitchNavigator({
-  AuthFlow: AuthNavigator,
-  AppFlow: AppNavigator,
-});
+// nest stack navigator to handle two internal views
+const MainSwitchNavigator = createSwitchNavigator(
+  {
+  // keys are the names of the "routes"
+    MainTabNav,
+    GroupStackNav,
+    JoinStackNav,
+    Create,
+  },
+  { headerMode: 'screen' },
+);
 
-const AppNav = createAppContainer(MainNav);
 
-export default AppNav;
+export default MainSwitchNavigator;

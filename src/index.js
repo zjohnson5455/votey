@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AppNavigator from './navigation/mainSwitchNav';
+import AppNavigator from './navigation/appNav';
 
 class Root extends Component {
   constructor(props) {

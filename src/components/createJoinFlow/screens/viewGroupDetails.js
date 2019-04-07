@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { View, Dimensions, Text } from 'react-native';
+import {
+  View, Dimensions, Text, Button
+} from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
@@ -28,6 +30,10 @@ class ViewGroupDetails extends Component {
       }}
       >
         <Text>View Group Details</Text>
+        <Button
+          onPress={() => this.props.navigation.navigate('MainTabNav')}
+          title="Go to home (after joining)"
+        />
       </View>
     );
   }

@@ -34,6 +34,10 @@ class Join extends Component {
           onPress={() => this.props.navigation.navigate('GroupDetail')}
           title="Go to group detail"
         />
+        <Button
+          onPress={() => this.props.navigation.navigate('MainTabNav')}
+          title="Go to home"
+        />
       </View>
     );
   }
