@@ -3,7 +3,7 @@
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "expoServerNgrokUrl": "https://bh-hc9.zjohnson5455.votey.exp.direct",
+  "packagerNgrokUrl": "https://packager.bh-hc9.zjohnson5455.votey.exp.direct",
+  "ngrokPid": 71628
 }

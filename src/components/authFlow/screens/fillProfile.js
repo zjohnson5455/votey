@@ -9,14 +9,16 @@ const { width, height } = Dimensions.get('window');
 
 // https://www.youtube.com/watch?v=0TlOhmdl3-M
 
-class CreateAccount extends Component {
+class FillProfile extends Component {
   constructor(props) {
     super(props);
+    console.log(props.navigation.state.params.id);
 
     this.state = {
       size: { width, height },
-      email: '',
-      password: '',
+      email: props.navigation.state.params.email,
+      id: props.navigation.state.params.id,
+      hometown: '',
     };
   }
 
@@ -25,36 +27,15 @@ class CreateAccount extends Component {
     this.setState({ size: { width: layout.width, height: layout.height } });
   };
 
-  // createUser = async (data) => {
-  //   try {
-  //     await Firebase.db.collection('users').add({
-  //       id: data.uid,
-  //       email: data.email,
-  //       favoriteTypeOfBanana: 'green'
-  //     });
-  //   } catch (e) {
-  //     console.log(e);
-  //     Alert.alert(
-  //       'Oh no! Something Went Wrong!',
-  //       'Make sure your email and password are valid',
-  //       [
-  //         { text: 'OK', onPress: () => console.log('OK Pressed') },
-  //       ],
-  //       { cancelable: false },
-  //     );
-  //   }
-  // }
-
-  signUp = async () => {
-    console.log(this.state.email);
-    console.log(this.state.password);
-
+  createUser = async () => {
     try {
-      const data = await Firebase.auth.createUserWithEmailAndPassword(this.state.email, this.state.password);
-      this.props.navigation.navigate('FillProfile', {
+      await Firebase.db.collection('users').add({
+        id: this.state.id,
         email: this.state.email,
-        id: data.user.uid,
+        hometown: this.state.hometown,
+        groups: []
       });
+      this.props.navigation.navigate('AppFlow');
     } catch (e) {
       console.log(e);
       Alert.alert(
@@ -66,6 +47,13 @@ class CreateAccount extends Component {
         { cancelable: false },
       );
     }
+  }
+
+  signUp = async () => {
+    console.log(this.state.email);
+    console.log(this.state.id);
+    console.log(this.state.hometown);
+    this.createUser();
   }
 
   render() {
@@ -80,26 +68,16 @@ class CreateAccount extends Component {
         }}
         >
           <TextInput
-            placeholder="Email"
+            placeholder="Hometown"
             placeholderTextColor="black"
             multiline
             style={styles.text}
             numberOfLines={2}
             underlineColorAndroid="transparent"
-            onChangeText={email => this.setState({ email })}
+            onChangeText={hometown => this.setState({ hometown })}
           />
 
-          <TextInput
-            placeholder="Password"
-            placeholderTextColor="black"
-            multiline
-            style={styles.text}
-            numberOfLines={2}
-            underlineColorAndroid="transparent"
-            onChangeText={password => this.setState({ password })}
-          />
-
-          <Button title="Next" onPress={this.signUp} />
+          <Button title="Sign Up" onPress={this.signUp} />
           <Button
             onPress={() => this.props.navigation.navigate('Login')}
             title="Go to login"
@@ -111,21 +89,6 @@ class CreateAccount extends Component {
 }
 
 const styles = StyleSheet.create({
-  // baseFont: {
-  //   fontSize: 18,
-  //   marginBottom: 10,
-  //   textAlign: 'center'
-  // },
-  // container: {
-  //   alignItems: 'center',
-  //   flex: 1,
-  //   padding: 20
-  // },
-  // imageStyle: {
-  //   width: 250,
-  //   height: 350,
-  //   justifyContent: 'space-between'
-  // },
   text: {
     margin: 10,
     color: 'black',
@@ -141,4 +104,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default CreateAccount;
+export default FillProfile;
