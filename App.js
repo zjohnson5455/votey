@@ -6,6 +6,8 @@ import {
 import firebase from 'firebase';
 import * as firebaseui from 'firebaseui';
 import db from './src/config';
+import Root from './src';
+
 
 export default class App extends React.Component {
   addItem = () => {
@@ -31,18 +33,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Button title="Test Database" onPress={this.addItem} />
-      </View>
+      <Root />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AppNavigator from './navigation/mainSwitchNav';
 
 class Root extends Component {
   constructor(props) {
@@ -8,4 +9,10 @@ class Root extends Component {
       yoState: 'yo',
     };
   }
+
+  render() {
+    return <AppNavigator />;
+  }
 }
+
+export default Root;
