@@ -1,6 +1,6 @@
-import { createSwitchNavigator } from 'react-navigation';
+import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 import AuthNavigator from './authStackNav';
-import AppNavigator from './mainStackNav';
+import AppNavigator from './mainTabNav';
 
 
 const MainNav = createSwitchNavigator({
@@ -8,5 +8,6 @@ const MainNav = createSwitchNavigator({
   AppFlow: AppNavigator,
 });
 
+const AppNav = createAppContainer(MainNav);
 
-export default MainNav;
+export default AppNav;
