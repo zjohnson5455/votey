@@ -1,34 +1,42 @@
 import React, { Component } from 'react';
 import {
-  View, Dimensions, Text, Button, TextInput, StyleSheet, Alert
+  View, Dimensions, Text, TextInput, StyleSheet, Button, Alert
 } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Firebase from '../../../Firebase';
 
 const { width, height } = Dimensions.get('window');
 
-class Create extends Component {
+// https://www.youtube.com/watch?v=0TlOhmdl3-M
+
+class SealTheDeal extends Component {
   constructor(props) {
     super(props);
+    console.log(props.navigation.state.params.id);
 
     this.state = {
       size: { width, height },
-      name: '',
+      email: props.navigation.state.params.email,
+      id: props.navigation.state.params.id,
+      hometown: '',
     };
   }
 
-  createGroup = async () => {
-    console.log('creating group');
-    console.log(this.state.name);
+  _onLayoutDidChange = (e) => {
+    const { layout } = e.nativeEvent;
+    this.setState({ size: { width: layout.width, height: layout.height } });
+  };
+
+  seal = async () => {
+    console.log('About to seal the deal');
+    console.log(this.props.navigation.state.params.groupId);
+    console.log(this.props.navigation.state.params.userId);
+
     try {
-      const data = await Firebase.db.collection('groups').add({
-        name: this.state.name,
-        members: [Firebase.auth.currentUser.uid]
+      const user = await Firebase.db.collection('users').doc(this.props.navigation.state.params.userId).update({
+        groups: [this.props.navigation.state.params.groupId]
       });
-      this.props.navigation.navigate('Seal', {
-        groupId: data.id,
-        userId: Firebase.auth.currentUser.uid
-      });
+      console.log('at least you are successful in that');
     } catch (e) {
       console.log(e);
       Alert.alert(
@@ -42,11 +50,6 @@ class Create extends Component {
     }
   }
 
-  _onLayoutDidChange = (e) => {
-    const { layout } = e.nativeEvent;
-    this.setState({ size: { width: layout.width, height: layout.height } });
-  };
-
   render() {
     return (
       <KeyboardAwareScrollView>
@@ -58,23 +61,8 @@ class Create extends Component {
           backgroundColor: '#FFFFFF',
         }}
         >
-          <TextInput
-            placeholder="Group Name"
-            placeholderTextColor="black"
-            multiline
-            style={styles.text}
-            numberOfLines={2}
-            underlineColorAndroid="transparent"
-            onChangeText={name => this.setState({ name })}
-          />
-          <Button
-            onPress={this.createGroup}
-            title="Create Group"
-          />
-          <Button
-            onPress={() => this.props.navigation.navigate('MainTabNav')}
-            title="Go to home after creating"
-          />
+
+          <Button title="Join the Group You Just Made!" onPress={this.seal} />
         </View>
       </KeyboardAwareScrollView>
     );
@@ -96,4 +84,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Create;
+
+export default SealTheDeal;

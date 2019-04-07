@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19003,
-  "packagerPid": 85363,
-  "expoServerNgrokUrl": "https://bh-hc9.maxfarrens.votey.exp.direct",
-  "packagerNgrokUrl": "https://packager.bh-hc9.maxfarrens.votey.exp.direct",
-  "ngrokPid": 85395
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }

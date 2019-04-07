@@ -29,8 +29,7 @@ class FillProfile extends Component {
 
   createUser = async () => {
     try {
-      await Firebase.db.collection('users').add({
-        id: this.state.id,
+      await Firebase.db.collection('users').doc(this.state.id).set({
         email: this.state.email,
         hometown: this.state.hometown,
         groups: []

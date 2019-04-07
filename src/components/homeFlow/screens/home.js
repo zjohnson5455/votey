@@ -3,40 +3,9 @@ import {
   View, ScrollView, StyleSheet, Dimensions, Text, Image, Button, Alert, TouchableOpacity
 } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
+import Firebase from '../../../Firebase';
 
 const { width, height } = Dimensions.get('window');
-
-const styles = StyleSheet.create({
-  normal: {
-    color: 'black',
-    textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: 15,
-  },
-  title: {
-    color: 'red',
-    textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: 30,
-    marginTop: 5
-  },
-  groups: {
-    color: 'black',
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    fontWeight: 'bold',
-    fontSize: 25,
-  },
-  button: {
-    alignItems: 'center',
-    backgroundColor: '#DDDDDD',
-    padding: 10
-  },
-  trial: {
-    flex: 1,
-    justifyContent: 'center',
-  }
-});
 
 class Home extends Component {
   constructor(props) {
@@ -198,11 +167,43 @@ class Home extends Component {
           </TouchableOpacity>
 
           <View style={{ height: 1, width: 400, backgroundColor: 'black' }} />
-
+          <Button title="Create New Group" onPress={() => this.props.navigation.navigate('Create')} />
         </View>
       </ScrollView>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  normal: {
+    color: 'black',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 15,
+  },
+  title: {
+    color: 'red',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 30,
+    marginTop: 5
+  },
+  groups: {
+    color: 'black',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    fontWeight: 'bold',
+    fontSize: 25,
+  },
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#DDDDDD',
+    padding: 10
+  },
+  trial: {
+    flex: 1,
+    justifyContent: 'center',
+  }
+});
 
 export default Home;

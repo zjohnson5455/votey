@@ -25,32 +25,14 @@ class CreateAccount extends Component {
     this.setState({ size: { width: layout.width, height: layout.height } });
   };
 
-  // createUser = async (data) => {
-  //   try {
-  //     await Firebase.db.collection('users').add({
-  //       id: data.uid,
-  //       email: data.email,
-  //       favoriteTypeOfBanana: 'green'
-  //     });
-  //   } catch (e) {
-  //     console.log(e);
-  //     Alert.alert(
-  //       'Oh no! Something Went Wrong!',
-  //       'Make sure your email and password are valid',
-  //       [
-  //         { text: 'OK', onPress: () => console.log('OK Pressed') },
-  //       ],
-  //       { cancelable: false },
-  //     );
-  //   }
-  // }
-
   signUp = async () => {
     console.log(this.state.email);
     console.log(this.state.password);
 
     try {
       const data = await Firebase.auth.createUserWithEmailAndPassword(this.state.email, this.state.password);
+      console.log('!!!!!!!!!!!!');
+      console.log(data.user.uid);
       this.props.navigation.navigate('FillProfile', {
         email: this.state.email,
         id: data.user.uid,
@@ -151,21 +133,6 @@ class CreateAccount extends Component {
 }
 
 const styles = StyleSheet.create({
-  // baseFont: {
-  //   fontSize: 18,
-  //   marginBottom: 10,
-  //   textAlign: 'center'
-  // },
-  // container: {
-  //   alignItems: 'center',
-  //   flex: 1,
-  //   padding: 20
-  // },
-  // imageStyle: {
-  //   width: 250,
-  //   height: 350,
-  //   justifyContent: 'space-between'
-  // },
   text: {
     margin: 10,
     textAlign: 'center',
