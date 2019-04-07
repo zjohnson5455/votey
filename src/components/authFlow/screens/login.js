@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  View, Dimensions, Text, TextInput, StyleSheet, Button, Alert
+  View, Dimensions, Text, TextInput, StyleSheet, Button, Alert, TouchableOpacity
 } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Firebase from '../../../Firebase';
@@ -49,35 +49,56 @@ class Login extends Component {
         <View style={{
           flex: 1,
           flexDirection: 'column',
-          justifyContent: 'space-around',
+          justifyContent: 'space-evenly',
           alignItems: 'center',
-          backgroundColor: '#FFFFFF',
+          backgroundColor: '#dbeaff',
         }}
         >
+
+        <Text style={styles.title}>VOTEY</Text>
+
+        <View style={{height: 50, width: 200, marginTop: 10, backgroundColor: 'black', borderRadius: 10}} >
+          <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center', height: 48, width: 198, backgroundColor: 'white', borderRadius: 10}}>
           <TextInput
-            placeholder="Email"
-            placeholderTextColor="black"
+            placeholder="email..."
+            placeholderTextColor="#8b8d91"
             multiline
             style={styles.text}
             numberOfLines={2}
             underlineColorAndroid="transparent"
             onChangeText={email => this.setState({ email })}
           />
+        </View>
+      </View>
 
-          <TextInput
-            placeholder="Password"
-            placeholderTextColor="black"
+      <View style={{height: 50, width: 200, borderRadius: 10, marginTop: 10, backgroundColor: 'black'}} >
+        <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center', height: 48, width: 198, backgroundColor: 'white', borderRadius: 10}}>
+          <TextInput style={{paddingHorizontal: 100, }}
+            placeholder="password..."
+            placeholderTextColor="#8b8d91"
             multiline
             style={styles.text}
             numberOfLines={2}
             underlineColorAndroid="transparent"
             onChangeText={password => this.setState({ password })}
           />
+          </View>
+        </View>
 
-          <Button title="Login" onPress={this.signIn} />
+        <TouchableOpacity
+          onPress={this.signIn}
+        >
+        <View style={{borderRadius: 10, height: 50, width: 200, marginTop: 50, marginBottom: 40, backgroundColor: 'black'}} >
+          <View style={{borderRadius: 10, position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center', height: 48, width: 198, backgroundColor: '#b5b8bc'}}>
+          <Text style={styles.text}> LOGIN </Text>
+          </View>
+        </View>
+        </TouchableOpacity>
+
+        <Text style={styles.normal}>Don't have an account?</Text>
           <Button
             onPress={() => this.props.navigation.navigate('Create')}
-            title="Create an Account"
+            title="Create one here"
           />
         </View>
       </KeyboardAwareScrollView>
@@ -103,12 +124,27 @@ const styles = StyleSheet.create({
   // },
   text: {
     margin: 10,
-    color: 'black',
     textAlign: 'center',
     lineHeight: 20,
     fontSize: 20,
     textDecorationLine: 'none',
+    textShadowColor: '#000000',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 5
+  },
+  normal: {
+    color: 'black',
+    textAlign: 'center',
+    fontSize: 20,
+  },
+  title: {
+    marginTop: 30,
+    marginBottom: 30,
+    color: 'red',
+    textAlign: 'center',
+    fontSize: 100,
     fontWeight: 'bold',
+    textDecorationLine: 'none',
     textShadowColor: '#000000',
     textShadowOffset: { width: 0, height: 1 },
     textShadowRadius: 5
